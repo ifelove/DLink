@@ -40,6 +40,7 @@ const createController = async (req, res) => {
     presentLocation,
     status,
     action,
+    controllerPart,
   } = req.body;
 
   let controller = new Controller({
@@ -51,6 +52,7 @@ const createController = async (req, res) => {
     presentLocation,
     status,
     action,
+    controllerPart,
   });
 
   controller = await controller.save();
@@ -93,7 +95,10 @@ const repaireController = async (req, res) => {
     presentLocation,
     status,
     action,
+    controllerPart,
   } = req.body;
+
+ 
 
   if (
     !controllerId ||
@@ -103,8 +108,9 @@ const repaireController = async (req, res) => {
     !sec_boardId ||
     !type ||
     !version ||
-    presentLocation ||
-    !action
+    !presentLocation ||
+    !action ||
+    !controllerPart
   ) {
     throw new BadrequestError(
       `Please provide board id  and update status to repair board`
@@ -127,6 +133,7 @@ const repaireController = async (req, res) => {
   controller.version = version;
   controller.presentLocation = presentLocation;
   controller.action = action;
+  controller.controllerPart = controllerPart;
   await controller.save();
 
   res.status(StatusCodes.OK).json({
@@ -146,6 +153,7 @@ const updateController = async (req, res) => {
     presentLocation,
     status,
     action,
+    controllerPart,
   } = req.body;
 
   if (
@@ -156,8 +164,9 @@ const updateController = async (req, res) => {
     !sec_boardId ||
     !type ||
     !version ||
-    presentLocation ||
-    !action
+    !presentLocation ||
+    !action ||
+    !controllerPart
   ) {
     throw new BadrequestError(
       `Please provide board id  and update status to repair board`
@@ -180,6 +189,7 @@ const updateController = async (req, res) => {
   controller.version = version;
   controller.presentLocation = presentLocation;
   controller.action = action;
+  controller.controllerPart = controllerPart;
   await controller.save();
 
   res.status(StatusCodes.OK).json({

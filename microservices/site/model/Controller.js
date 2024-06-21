@@ -1,5 +1,13 @@
 const mongoose = require("mongoose");
 
+const PartSchema = new mongoose.Schema(
+  {
+    SN: { type: String },
+    status: { type: String },
+  },
+  { _id: false }
+);
+
 const ControllerSchema = new mongoose.Schema(
   {
     serialNumber: { type: String },
@@ -10,11 +18,20 @@ const ControllerSchema = new mongoose.Schema(
     },
     sec_boardId: { type: String },
     type: { type: String, enum: ["plastic", "2u", "grey"] },
-    version: { type: String, enum: ["8", "7"] },
+    version: { type: Number, enum: [8, 7] },
     presentLocation: { type: String },
-    region: { type: String },
-    status: { type: String, enum: ["okay", "faulty", "not-in-used"] },
-    action: { type: String, enum: ["installed", "uninstalled", "on-repaire"] },
+    status: { type: String, enum: ["okay", "faulty", "repaired", "new"] },
+    action: {
+      type: String,
+      enum: ["installed", "uninstalled", "on repaire", "in stock"],
+    },
+    controllerPart: {
+      powerPack: { type: PartSchema },
+      LVDSN: { type: PartSchema },
+      _12VCard: { type: PartSchema },
+      voltageCard: { type: PartSchema },
+      wiznet: { type: PartSchema },
+    },
   },
   { timestamps: true }
 );

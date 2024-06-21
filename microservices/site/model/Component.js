@@ -7,8 +7,8 @@ const ComponentSchema = new mongoose.Schema(
     type: { type: String, enum: ["modbus", "digital output", "digital input","analogue input","others"] },
     version: { type: Number},
     presentLocation: { type: String },
-    status: { type: String, enum: ["okay", "faulty", "not-in-used"] },
-    action: { type: String, enum: ["installed", "uninstalled", "on-repaire"] },
+    status: { type: String, enum: ["okay", "faulty", "not-in-used","repaired"] },
+    action: { type: String, enum: ["installed", "uninstalled", "on-repaire","in stock"] },
   },
   { timestamps: true }
 );
