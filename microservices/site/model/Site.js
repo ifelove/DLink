@@ -6,14 +6,15 @@ const SiteSchema = new mongoose.Schema(
     latitude: { type: String },
     longitude: { type: String },
     address: { type: String },
-    topograph: { type: String },
-    type: { type: String },
+    topography: { type: String },
+    type: { type: String,enum:["indoor","outdoor",] },
     location: { type: String },
     region: { type: String },
     controller: {
       type: mongoose.Schema.ObjectId,
       ref: "Controller",
       required: true,
+      unique: true,
     },
     components: {
       type: [mongoose.Schema.ObjectId],

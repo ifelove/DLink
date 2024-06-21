@@ -10,11 +10,12 @@ const PartSchema = new mongoose.Schema(
 
 const ControllerSchema = new mongoose.Schema(
   {
-    serialNumber: { type: String },
+    serialNumber: { type: String, unique: true},
     pry_boardId: {
       type: mongoose.Schema.ObjectId,
       ref: "Board",
       required: true,
+      unique: true,
     },
     sec_boardId: { type: String },
     type: { type: String, enum: ["plastic", "2u", "grey"] },
@@ -27,7 +28,7 @@ const ControllerSchema = new mongoose.Schema(
     },
     controllerPart: {
       powerPack: { type: PartSchema },
-      LVDSN: { type: PartSchema },
+      LVD: { type: PartSchema },
       _12VCard: { type: PartSchema },
       voltageCard: { type: PartSchema },
       wiznet: { type: PartSchema },
