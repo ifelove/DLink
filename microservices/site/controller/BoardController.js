@@ -1,4 +1,5 @@
 const Board = require("../model/Board");
+const BoardReport = require("../model/BoardReport");
 const { StatusCodes } = require("http-status-codes");
 const {
   CustomError,
@@ -110,10 +111,59 @@ const updateBoard = async (req, res) => {
     .json({ board: board, msg: "board details updated successfully" });
 };
 
+const boardReporting = async (req, res) => {
+  let report = {};
+
+  const id = req.params.id;
+  const {
+    boardId,
+    faultCategory,
+    faultDesc,
+    comment,
+    dateOfRepaire,
+    componentReplaced,
+    categoryAfterFix,
+    faultDescAfterFix,
+    remark,
+    version,
+  } = req.body;
+
+  const board = await Board.findOne({ _id: id });
+
+  if (!board) {
+    throw new NotFoundError(
+      `board with id ${boardId} not found or does not exist`
+    );
+  }
+
+  report.technician = "user";
+  report.boardUUID = board._id;
+  report.boardId = board.boardId;
+  report.faultCategory = faultCategory;
+  report.faultDesc = faultDesc;
+  report.comment = comment;
+  report.dateOfRepaire = board.updatedAt;
+  report.componentReplaced = componentReplaced;
+  report.categoryAfterFix = categoryAfterFix;
+  report.faultDescAfterFix = faultDescAfterFix;
+  report.remark = remark;
+  report.version = board.version;
+
+  console.log(report);
+  //send report to database(create report)
+  report = new BoardReport(report);
+  await report.save();
+  res
+    .status(StatusCodes.OK)
+    .json({ report: report, msg: "board repaire status updated successfully" });
+
+  //send report to googlesheet api
+};
+
 module.exports = {
   createBoard,
   getSingleBoard,
   getAllBoard,
   repaireBoard,
-  updateBoard
+  updateBoard,
 };

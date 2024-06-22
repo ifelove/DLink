@@ -198,6 +198,18 @@ const updateController = async (req, res) => {
   });
 };
 
+
+
+
+const boardReporting = async (req,res) => {};
+
+
+
+
+
+
+
+
 module.exports = {
   createController,
   getSingleController,
