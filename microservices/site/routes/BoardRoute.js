@@ -11,6 +11,6 @@ const {
 
 router.route("/").post(createBoard).get(getAllBoard);
 router.route("/:id").get(getSingleBoard).patch(updateBoard);
-router.route("/repair:id").patch(repaireBoard);
+router.route("/repair/:id").patch(repaireBoard);
 
 module.exports = router;

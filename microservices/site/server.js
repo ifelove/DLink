@@ -13,6 +13,7 @@ require("dotenv").config(); //
 const BoardRoute = require("./routes/BoardRoute");
 const ControllerRoute = require("./routes/ControllerRoute");
 const ComponentRoute = require("./routes/ComponentRoute");
+const SiteController = require("./routes/siteRoute");
 
 // middleware
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use("/api/site/boards", BoardRoute);
 app.use("/api/site/controllers", ControllerRoute);
 app.use("/api/site/components", ComponentRoute);
+app.use("/api/site", ComponentRoute);
 
 //app.get("/doc", (req, res) => {
 //  res.sendFile(path.resolve(__dirname, "./doc", "reveew.html"));
@@ -41,7 +43,7 @@ app.use(errorHandler);
 const start = async () => {
   await connectDb(process.env.MONGO_URL);
 
-   app.listen(port, () =>
+  app.listen(port, () =>
     console.log(` Site Server is running on port : ${port}`)
   );
 

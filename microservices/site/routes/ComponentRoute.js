@@ -11,6 +11,6 @@ const {
 
 router.route("/").post(createComponent).get(getAllComponent);
 router.route("/:id").get(getSingleComponent).patch(updateComponent);
-router.route("/repair:id").patch(repaireComponent);
+router.route("/repair/:id").patch(repaireComponent);
 
 module.exports = router;

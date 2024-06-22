@@ -153,10 +153,60 @@ const updateSite = async (req, res) => {
     .json({ site: site, msg: "board details updated successfully" });
 };
 
+const replaceController = async (req, res) => {
+  const siteId = req.params.id;
+  const { controller } = req.body;
+
+  if (!controller) {
+    throw new BadrequestError(
+      `Please provide board id  and update status to repair board`
+    );
+  }
+
+  const site = await Site.findOne({ _id: siteId });
+
+  if (!site) {
+    throw new NotFoundError(
+      `site with id ${siteId} not found or does not exist`
+    );
+  }
+
+  site.controller = controller;
+
+  await site.save();
+
+  res.status(StatusCodes.OK).json({ site: site, msg: "sla status updated" });
+};
+const replaceComponent = async (req, res) => {
+  const siteId = req.params.id;
+  const { components } = req.body;
+
+  if (components) {
+    throw new BadrequestError(
+      `Please provide board id  and update status to repair board`
+    );
+  }
+
+  const site = await Site.findOne({ _id: siteId });
+
+  if (!site) {
+    throw new NotFoundError(
+      `site with id ${siteId} not found or does not exist`
+    );
+  }
+
+  site.components = components;
+  await site.save();
+
+  res.status(StatusCodes.OK).json({ site: site, msg: "sla status updated" });
+};
+
 module.exports = {
   createSite,
   getSingleSite,
   getAllSite,
   fixedSite,
   updateSite,
+  replaceComponent,
+  replaceController,
 };
