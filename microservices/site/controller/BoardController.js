@@ -1,5 +1,5 @@
 const Board = require("../model/Board");
-const BoardReport = require("../model/BoardReport");
+const BoardReport = require("../model/report/BoardReport");
 const { StatusCodes } = require("http-status-codes");
 const {
   CustomError,

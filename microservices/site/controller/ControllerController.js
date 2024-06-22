@@ -98,8 +98,6 @@ const repaireController = async (req, res) => {
     controllerPart,
   } = req.body;
 
- 
-
   if (
     !controllerId ||
     !status ||
@@ -198,17 +196,54 @@ const updateController = async (req, res) => {
   });
 };
 
+const boardReporting = async (req, res) => {
+  let report = {};
 
+  const id = req.params.id;
+  const {
+    boardId,
+    faultCategory,
+    faultDesc,
+    comment,
+    dateOfRepaire,
+    componentReplaced,
+    categoryAfterFix,
+    faultDescAfterFix,
+    remark,
+    version,
+  } = req.body;
 
+  const controller = await Controller.findOne({ _id: id });
 
-const boardReporting = async (req,res) => {};
+  if (!board) {
+    throw new NotFoundError(
+      `board with id ${boardId} not found or does not exist`
+    );
+  }
 
+  report.technician = "user";
+  report.boardUUID = board._id;
+  report.boardId = board.boardId;
+  report.faultCategory = faultCategory;
+  report.faultDesc = faultDesc;
+  report.comment = comment;
+  report.dateOfRepaire = board.updatedAt;
+  report.componentReplaced = componentReplaced;
+  report.categoryAfterFix = categoryAfterFix;
+  report.faultDescAfterFix = faultDescAfterFix;
+  report.remark = remark;
+  report.version = board.version;
 
+  console.log(report);
+  //send report to database(create report)
+  report = new BoardReport(report);
+  await report.save();
+  res
+    .status(StatusCodes.OK)
+    .json({ report: report, msg: "board repaire status updated successfully" });
 
-
-
-
-
+  //send report to googlesheet api
+};
 
 module.exports = {
   createController,
