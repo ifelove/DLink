@@ -18,7 +18,7 @@
 
 /* src/Sidebar.css */
 .sidebar {
-  width: 250px;
+  width: 300px;
   height: 100vh;
   background: yellowgreen;
   color: #fff;
@@ -32,15 +32,27 @@
   width: 30px;
 }
 
-.toggle-btn {
-  background: #444;
-  border: none;
-  color: #fff;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
+
+
+.expand-icon {
+  font-size: 40px;
+  color: #000;
+   cursor: pointer;
+ position: absolute;
+ transition: right 0.3s;
   top: 10px;
-  right: 10px;
-  transition: right 0.3s;
+  right: -20px;
+ 
+
 }
 
+
+.main-content {
+  margin-left: 300px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.main-content.expanded {
+  margin-left: 50px;
+}
