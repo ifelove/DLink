@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0);
 
+function App() {
   return (
     <section>
-      <h1 class="text-3xl font-bold underline text-white ">Hello world!</h1>
+      <h1 class="text-9xl font-light underline text-black ">Hello world!</h1>
     </section>
   );
 }
