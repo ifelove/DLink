@@ -87,3 +87,5 @@
   transform: translateX(81%);
   top: 100%;
 }
+
+.tooltip{text-transform: capitalize;}

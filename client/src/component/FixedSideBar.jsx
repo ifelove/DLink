@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactLogo from "../assets/logo.svg?react";
+import React from "react";
+import Logo from "../assets/logo.svg?react";
 import dash from "../assets/dash.png";
 import site from "../assets/site1.png";
 
@@ -8,8 +8,9 @@ import ticket2 from "../assets/ticket2.png";
 import app from "../assets/app.png";
 import utilities from "../assets/utilities.png";
 import doc from "../assets/docs.png";
+import { sidebarData } from "../constant";
 
-
+console.log(sidebarData);
 
 const FixedSideBar = () => {
   return (
@@ -17,28 +18,37 @@ const FixedSideBar = () => {
       <ul className=" bg-base-200 h-screen">
         <li>
           <a className="ml-auto p-0 m-0">
-            <ReactLogo />
+            <Logo />
           </a>
         </li>
         <div className="divider m-0"></div>
-        <li>
-          <a className="tooltip tooltip-right ml-3 " data-tip="Dashboard">
-            <img src={dash} alt="dash" className="h-14 w-14" />
-          </a>
-        </li>
-        <li>
+
+        {sidebarData.map((item) => {
+          return (
+            <li className="mb-4">
+              <a className="tooltip tooltip-right ml-3 " data-tip={item.title}>
+                <img src={item.icon} alt={item.icon} className="h-14 w-14" />
+              </a>
+            </li>
+          );
+        })}
+
+        {/**   <li>
           <a className="tooltip tooltip-right ml-3 mt-3" data-tip="Sites">
             <img src={site} alt="sites" className="h-14 w-14" />
           </a>
         </li>
 
         <li>
-          <a className="tooltip tooltip-right ml-3 mt-3" data-tip="Ticket">
+          <a
+            className="tooltip tooltip-right ml-3 mt-3"
+            data-tip="Spport Ticket"
+          >
             <img src={ticket1} alt="ticket" className="h-14 w-14" />
           </a>
         </li>
         <li>
-          <a className="tooltip tooltip-right ml-3 mt-3" data-tip="Ticket">
+          <a className="tooltip tooltip-right ml-3 mt-3" data-tip=" Support Ticket">
             <img src={ticket2} alt="ticket" className="h-14 w-14" />
           </a>
         </li>
@@ -58,10 +68,10 @@ const FixedSideBar = () => {
           <a className="tooltip tooltip-right ml-3 mt-3" data-tip="Docs">
             <img src={doc} alt="doc" className="h-14 w-14" />
           </a>
-        </li>
+        </li>*/}
       </ul>
     </section>
   );
-}
+};
 
-export default FixedSideBar
+export default FixedSideBar;
