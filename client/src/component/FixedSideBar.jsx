@@ -42,6 +42,7 @@ const FixedSideBar = () => {
             <img src={ticket2} alt="ticket" className="h-14 w-14" />
           </a>
         </li>
+        <div className="divider m-0"></div>
         <li>
           <a className="tooltip tooltip-right ml-3 mt-3" data-tip="Tool">
             <img src={app} alt="app" className="h-14 w-14" />
