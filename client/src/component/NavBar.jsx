@@ -1,6 +1,8 @@
 import React from "react";
 import { Tooltip } from "rsuite";
 import { IoIosArrowDown } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { toggleTheme } from "../utils/reduxToolkit/features/app/appSlice";
 
 import {
   MdDarkMode,
@@ -9,7 +11,9 @@ import {
 } from "react-icons/md";
 import { Badge, Button } from "rsuite";
 
-const NavBar = ({ theme, toggleTheme }) => {
+const NavBar = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="navbar bg-base-100 ">
@@ -19,7 +23,12 @@ const NavBar = ({ theme, toggleTheme }) => {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li className="mr-5" title="Theme">
-              <MdDarkMode className="i alert " onClick={toggleTheme} />
+              <MdDarkMode
+                className="i alert "
+                onClick={() => {
+                  dispatch(toggleTheme());
+                }}
+              />
             </li>
 
             <li className=" " title="Noticification">

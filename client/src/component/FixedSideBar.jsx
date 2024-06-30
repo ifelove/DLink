@@ -9,10 +9,12 @@ import app from "../assets/app.png";
 import utilities from "../assets/utilities.png";
 import doc from "../assets/docs.png";
 import { sidebarData } from "../constant";
-
-console.log(sidebarData);
+import { useDispatch } from "react-redux";
+import { setSubSidebarData } from "../utils/reduxToolkit/features/app/appSlice";
 
 const FixedSideBar = () => {
+  const dispatch = useDispatch();
+
   return (
     <section className="w-24 h-screen ">
       <ul className=" bg-base-200 h-screen">
@@ -23,11 +25,18 @@ const FixedSideBar = () => {
         </li>
         <div className="divider m-0"></div>
 
-        {sidebarData.map((item) => {
+        {sidebarData.map((item, i) => {
           return (
-            <li className="mb-4">
+            <li className="mb-4" key={i}>
               <a className="tooltip tooltip-right ml-3 " data-tip={item.title}>
-                <img src={item.icon} alt={item.icon} className="h-14 w-14" />
+                <img
+                  src={item.icon}
+                  alt={item.icon}
+                  className="h-14 w-14"
+                  onClick={() => {
+                    dispatch(setSubSidebarData(item));
+                  }}
+                />
               </a>
             </li>
           );

@@ -3,14 +3,18 @@ import FixedSideBar from "./component/FixedSideBar";
 import SideBar from "./component/SideBar";
 import NavBar from "./component/NavBar";
 import "rsuite/dist/rsuite.min.css";
+import { useSelector } from "react-redux";
+
+
 
 function App() {
+  const { theme } = useSelector((state) => state.app);
   const [isCollapsed, setIsCollapsed] = React.useState(true);
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-   const [theme, setTheme] = React.useState("light");
+  // const [theme, setTheme] = React.useState("light");
 
    const toggleTheme = () => {
      setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
