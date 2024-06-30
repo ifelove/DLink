@@ -1,8 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import dash from "../../../../assets/dash.png";
 
 const initialState = {
   theme: "light",
-  subSidebarData: {},
+  subSidebarData: {
+    title: "dashboard",
+    icon: dash,
+    links: [
+      { name: "overwiew", url: "" },
+      { name: "team management", url: "" },
+    ],
+  },
 };
 
 export const appSlice = createSlice({

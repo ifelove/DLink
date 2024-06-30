@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+body{overflow: hidden;}
+
 .jj {
   bottom: 0;
   left: 0;
@@ -26,7 +28,12 @@
   top: 0;
   left: 95px;
   transition: width 0.3s;
+ 
 }
+
+.fixed-container{height: 100vh;}
+
+.rs-panel-collapsible::before{display: none;}
 
 .sidebar.collapsed {
   width: 30px;
@@ -47,13 +54,15 @@
 
   transition: margin-left 0.3s;
   background-color: gray;
-  width: 100%;
+  width: 100vw;
+  
 }
 
 .main-content.expanded {
   margin-left: 30px;
   background-color: aquamarine;
-  width: 100%;
+ 
+
 }
 
 .alert {
@@ -88,4 +97,38 @@
   top: 100%;
 }
 
-.tooltip{text-transform: capitalize;}
+.tooltip {
+  text-transform: capitalize;
+}
+.sidebar-li {
+  text-transform: capitalize;
+  padding: 7px;
+  margin-bottom: 7px;
+  margin-right: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.flex-sidebar {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 0 20px;
+  text-transform: capitalize;
+}
+.flex-site-search-cat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sele {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  color:white;
+}
+.sele:focus{color:rgb(143, 137, 137);}
+
+.active-link{background-color:rgb(161, 157, 157);}

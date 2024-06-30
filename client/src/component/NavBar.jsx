@@ -22,7 +22,7 @@ const NavBar = () => {
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
-            <li className="mr-5" title="Theme">
+            <li className="mr-5 tooltip  tooltip-bottom" data-tip="Theme">
               <MdDarkMode
                 className="i alert "
                 onClick={() => {
@@ -31,7 +31,7 @@ const NavBar = () => {
               />
             </li>
 
-            <li className=" " title="Noticification">
+            <li className="tooltip-bottom tooltip " data-tip="Noticification">
               <Badge content={0}>
                 <MdOutlineNotifications className="i alert rounded-md" />
               </Badge>
@@ -48,12 +48,6 @@ const NavBar = () => {
             <IoIosArrowDown className="text-2xl cursor-pointer" />
           </article>
         </div>
-      </div>
-      <div style={{ height: 0 }} className="nav-tooltip">
-        <Tooltip visible>Noticification</Tooltip>
-      </div>
-      <div style={{ height: 0 }} className="nav-tooltip">
-        <Tooltip visible>Theme</Tooltip>
       </div>
     </>
   );

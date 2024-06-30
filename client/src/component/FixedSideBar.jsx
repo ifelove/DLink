@@ -14,10 +14,16 @@ import { setSubSidebarData } from "../utils/reduxToolkit/features/app/appSlice";
 
 const FixedSideBar = () => {
   const dispatch = useDispatch();
+  const [activeLink, setActiveLink] = React.useState("dashboard");
+
+  const handleLink = (item, active) => {
+    dispatch(setSubSidebarData(item));
+    setActiveLink(active);
+  };
 
   return (
-    <section className="w-24 h-screen ">
-      <ul className=" bg-base-200 h-screen">
+    <section className="w-24 ">
+      <ul className=" bg-base-200 fixed-container">
         <li>
           <a className="ml-auto p-0 m-0">
             <Logo />
@@ -26,16 +32,24 @@ const FixedSideBar = () => {
         <div className="divider m-0"></div>
 
         {sidebarData.map((item, i) => {
+  const className = `mb-4 ${item.title === activeLink ? "active-link" : ""}`;
+  if (item.title === "dashboard") {
+    console.log("yes");
+  } else {
+    console.log("no");
+  }
+
           return (
-            <li className="mb-4" key={i}>
+            <li
+              className={className}
+              key={i}
+            >
               <a className="tooltip tooltip-right ml-3 " data-tip={item.title}>
                 <img
                   src={item.icon}
                   alt={item.icon}
                   className="h-14 w-14"
-                  onClick={() => {
-                    dispatch(setSubSidebarData(item));
-                  }}
+                  onClick={() => handleLink(item, item.title)}
                 />
               </a>
             </li>
