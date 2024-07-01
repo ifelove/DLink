@@ -53,14 +53,14 @@ body{overflow: hidden;}
   margin-left: 300px;
 
   transition: margin-left 0.3s;
-  background-color: gray;
+
   width: 100vw;
   
 }
 
 .main-content.expanded {
   margin-left: 30px;
-  background-color: aquamarine;
+ 
  
 
 }
@@ -85,11 +85,9 @@ body{overflow: hidden;}
   justify-content: space-around;
   align-items: center;
 }
+.navbar{box-shadow:5px -4px 13px 2px rgb(111, 110, 110);}
 
-[data-theme="dark"] {
-  background-color: black;
-  color: white;
-}
+
 
 .nav-tooltip {
   cursor: pointer;
@@ -132,3 +130,8 @@ body{overflow: hidden;}
 .sele:focus{color:rgb(143, 137, 137);}
 
 .active-link{background-color:rgb(161, 157, 157);}
+
+svg.i.alert{background-color: transparent;border: none;}
+.site-nav{display:grid;grid-template-columns: 1fr 1fr 1fr 1fr;box-shadow: 1px 1px 1px 4px gainsboro;}
+.site-nav-link{padding: 20px 100px;color: #000;}
+.site-nav-link.active{background-color: gainsboro;}

@@ -18,7 +18,7 @@ export const appSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      state.theme = state.theme === "light" ? "dark" : "light";
+      state.theme = state.theme === "cupcake" ? "dark" : "cupcake";
     },
     setSubSidebarData:(state,action)=>{
 

@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 ">
+      <div className="navbar bg-transparent ">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">Tools</a>
         </div>
@@ -31,7 +31,7 @@ const NavBar = () => {
               />
             </li>
 
-            <li className="tooltip-bottom tooltip " data-tip="Noticification">
+            <li className="tooltip-bottom tooltip " data-tip="Noticificatio">
               <Badge content={0}>
                 <MdOutlineNotifications className="i alert rounded-md" />
               </Badge>
