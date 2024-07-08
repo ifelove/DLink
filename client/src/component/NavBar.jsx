@@ -18,7 +18,7 @@ const NavBar = () => {
     <>
       <div className="navbar bg-transparent ">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Tools</a>
+          <a className="">Tools</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">

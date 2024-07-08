@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{overflow: hidden;}
+
 
 .jj {
   bottom: 0;
@@ -64,6 +64,8 @@ body{overflow: hidden;}
  
 
 }
+
+
 
 .alert {
   font-size: 55px;
@@ -132,6 +134,18 @@ body{overflow: hidden;}
 .active-link{background-color:rgb(161, 157, 157);}
 
 svg.i.alert{background-color: transparent;border: none;}
-.site-nav{display:grid;grid-template-columns: 1fr 1fr 1fr 1fr;box-shadow: 1px 1px 1px 4px gainsboro;}
-.site-nav-link{padding: 20px 100px;color: #000;}
+.site-nav{display:grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr;box-shadow: 1px 1px 1px 4px gainsboro;}
+.site-nav-link{padding: 20px 10%;color: #000;text-align: center;}
 .site-nav-link.active{background-color: gainsboro;}
+
+
+
+.site-main{display:flex;justify-content: end;align-items: start;flex-direction: column;font-weight: bold;}
+.btn{font-size: 26px;color: white;padding: 20px  80px 50px 80px;background-color: green;margin:30px 40px;}
+.btn:hover{background-color: green;}
+
+.form-article{width: 80%;border: 1px solid gainsboro;max-height: 600px;margin: 4px 4px 2px 40px;display: none;}
+.site-div{display: flex;justify-content: space-between;align-items: center ;max-width: 500px;}
+.form-article.active{display: block;}
+.card-list{display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 0;max-height: 450px;overflow-y: scroll;}
+.card{height: 200px;}
