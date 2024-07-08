@@ -147,5 +147,6 @@ svg.i.alert{background-color: transparent;border: none;}
 .form-article{width: 80%;border: 1px solid gainsboro;max-height: 600px;margin: 4px 4px 2px 40px;display: none;}
 .site-div{display: flex;justify-content: space-between;align-items: center ;max-width: 500px;}
 .form-article.active{display: block;}
-.card-list{display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 0;max-height: 450px;overflow-y: scroll;}
+.card-list{display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 0;max-height: 450px;overflow-y: scroll;margin-top: 50px;}
 .card{height: 200px;}
+.card-body{border: 1px solid gainsboro;}
