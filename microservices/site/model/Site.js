@@ -8,7 +8,7 @@ const SiteSchema = new mongoose.Schema(
     address: { type: String },
     topography: { type: String },
     type: { type: String,enum:["indoor","outdoor",] },
-    location: { type: String },
+    state: { type: String },
     region: { type: String },
     controller: {
       type: mongoose.Schema.ObjectId,

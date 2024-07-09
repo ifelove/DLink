@@ -150,3 +150,12 @@ svg.i.alert{background-color: transparent;border: none;}
 .card-list{display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 0;max-height: 450px;overflow-y: scroll;margin-top: 50px;}
 .card{height: 200px;}
 .card-body{border: 1px solid gainsboro;}
+
+.board-container{display: flex;justify-content: center;align-items: center;flex-direction: column;}
+.board-card-container{display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 20px;}
+
+
+
+.new-modal{width: 70vw;}
+
+.singleboard-container{display: grid;grid-template-columns: 1fr 1fr; width: 90%;height: 500px; border: none;} 

@@ -194,8 +194,8 @@ const SiteFeature = () => {
 
           <div className="card-list ">
             <div className="card bg-base-100 w-96 shadow-xl ml-4 mt-2">
-              <div className="card-body p-0">
-                <div className="pl-20">
+              <div className="card-body p-0 ">
+                <div className="pl-20 pt-2">
                   <h2 className="card-title">R Card S/N : 00064</h2>
                   <h2 className="card-title">Version : Version 7</h2>
                 </div>
@@ -206,7 +206,7 @@ const SiteFeature = () => {
             </div>
             <div className="card bg-base-100 w-96 shadow-xl ml-4 mt-2">
               <div className="card-body p-0">
-                <div className="pl-20">
+                <div className="pl-20 pt-2">
                   <h2 className="card-title">R Card S/N : 00064</h2>
                   <h2 className="card-title">Version : Version 7</h2>
                 </div>
@@ -217,7 +217,7 @@ const SiteFeature = () => {
             </div>
             <div className="card bg-base-100 w-96 shadow-xl ml-4 mt-2">
               <div className="card-body p-0">
-                <div className="pl-20">
+                <div className="pl-20 pt-2">
                   <h2 className="card-title">R Card S/N : 00064</h2>
                   <h2 className="card-title">Version : Version 7</h2>
                 </div>
