@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SiteFeature from "./pages/SiteFeature";
 import Controller from "./pages/Controller";
 import Board from "./pages/Board"
-import SingleBoard from "./component/SingleBoard";
+import ReportBoard from "./component/ReportBoard";
 
 function App() {
   const { theme } = useSelector((state) => state.app);
@@ -37,7 +37,7 @@ function App() {
               <Route path="/sites" Component={SiteFeature}></Route>
               <Route path="/tool/controller" Component={Controller}></Route>
               <Route path="/tool/board" Component={Board}></Route>
-              <Route path="/tool/board/:id" Component={SingleBoard}></Route>
+              <Route path="/tool/board/:id" Component={ReportBoard}></Route>
               <Route path="/error" element="Error"></Route>
               <Route path="*" element="Not found"></Route>
             </Routes>

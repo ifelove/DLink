@@ -159,3 +159,4 @@ svg.i.alert{background-color: transparent;border: none;}
 .new-modal{width: 70vw;}
 
 .singleboard-container{display: grid;grid-template-columns: 1fr 1fr; width: 90%;height: 500px; border: none;} 
+.board-report-container{display: grid;grid-template-columns: 1fr 1fr;}

@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
+
+
 import dash from "../../../../assets/dash.png";
 
 const initialState = {
@@ -11,7 +13,19 @@ const initialState = {
       { name: "team management", url: "" },
     ],
   },
+ 
 };
+
+
+
+
+
+
+
+
+
+
+
 
 export const appSlice = createSlice({
   name: "app",
@@ -20,14 +34,12 @@ export const appSlice = createSlice({
     toggleTheme: (state) => {
       state.theme = state.theme === "light" ? "dark" : "light";
     },
-    setSubSidebarData:(state,action)=>{
-
-state.subSidebarData=action.payload
-
-    }
+    setSubSidebarData: (state, action) => {
+      state.subSidebarData = action.payload;
+    },
   },
 });
 
-export const { toggleTheme,setSubSidebarData } = appSlice.actions;
+export const { toggleTheme, setSubSidebarData } = appSlice.actions;
 
 export default appSlice.reducer;
