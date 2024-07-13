@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 4000; // the app can use either the hosting port during production 0r 5000 is not available
+const port = process.env.PORT || 4001; // the app can use either the hosting port during production 0r 5000 is not available
 const cors = require("cors");
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
@@ -9,6 +9,9 @@ const cookieParser = require("cookie-parser");
 require("express-async-errors");
 const connectDb = require("./db/ConnectDb");
 require("dotenv").config(); //
+
+const Board = require("./model/Board");
+const data = require("./file.json");
 
 const BoardRoute = require("./routes/BoardRoute");
 const ControllerRoute = require("./routes/ControllerRoute");
@@ -42,6 +45,8 @@ app.use(errorHandler);
 
 const start = async () => {
   await connectDb(process.env.MONGO_URL);
+
+ // Board.create(data);
 
   app.listen(port, () =>
     console.log(` Site Server is running on port : ${port}`)
